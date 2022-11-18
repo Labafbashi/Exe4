@@ -1,5 +1,6 @@
 ﻿using Exe4;
 using System.Runtime.CompilerServices;
+using System.Runtime.Versioning;
 using System.Security.Cryptography.X509Certificates;
 internal class MyInt
 {
@@ -146,7 +147,17 @@ internal class Program
 
     private static void CheckParenthesis(string userInput)
     {
-        
+        string str="";
+        int prevIndex = 0;
+        for(int i=0; i < userInput.Length; i++)
+        {
+            if (userInput[i] == '(' || userInput[i] == ')')
+            {
+                prevIndex = i;
+
+            }
+            str += userInput[i];
+        }
     }
 
     private static void ReverseText(string userInput)
