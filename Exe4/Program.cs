@@ -1,4 +1,5 @@
-﻿using System.Runtime.CompilerServices;
+﻿using Exe4;
+using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 internal class MyInt
 {
@@ -36,7 +37,7 @@ internal class Program
     {
         /*
          * Theory and facts
-         * 1. Stack is like a queue and it's LIFO (Last Input First Output) data structure, which means access to data only from the top part. Each datatype that works as a stack automatically removes from memory. for example:
+         * 1. Stack is like a queue and it's FILO (First Input Last Output) data structure, which means access to data only from the top part. Each datatype that works as a stack automatically removes from memory. for example:
          * STACK => [bool type][integer][double][][][][][][][]
          * Heap => [      string         classProgram            Object   ]
          * 
@@ -104,6 +105,56 @@ internal class Program
          * Exercise2: ExamineQueue()
          * 
          */
+        ExamineQueue ica = new ExamineQueue();
+        ica.AddToQueue("Kalle");
+        ica.AddToQueue("Greta");
+        Console.WriteLine("=========================== Add ====================================");
+        ica.PrintQueue();
+        ica.RemoveFromQueue();
+        Console.WriteLine("============================ Remove ===================================");
+        ica.PrintQueue();
+        ica.AddToQueue("Stina");
+        Console.WriteLine("============================ Add ===================================");
+        ica.PrintQueue();
+        ica.RemoveFromQueue();
+        Console.WriteLine("============================ Remove ===================================");
+        ica.PrintQueue();
+        ica.AddToQueue("Olle");
+        Console.WriteLine("============================ Add ===================================");
+        ica.PrintQueue();
+
+
+        /*
+         * Exercise3: ExamineStack()
+         * 1. Because we need a queue and first role of the queue is a FIFO (First input first output).
+         * 2. 
+         */
+        Console.WriteLine("\n===============================================================");
+        Console.Write("Please enter a String:");
+        String userInput = Console.ReadLine();
+        ReverseText(userInput);
+
+        /*
+         * Exercise4: CheckParenthesis()
+         * 1. I using a String, because it is a array of charachter.
+         */
+        Console.WriteLine("\n===============================================================");
+        Console.Write("Please enter a String to chech is it well formed or not add paranteses:");
+        CheckParenthesis(Console.ReadLine());
+
     }
 
+    private static void CheckParenthesis(string userInput)
+    {
+        
+    }
+
+    private static void ReverseText(string userInput)
+    {
+        for (int i = userInput.Length-1; i >= 0; i--)
+        {
+            Console.Write(userInput[i]);
+        }
+
+    }
 }
