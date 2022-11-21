@@ -148,16 +148,50 @@ internal class Program
     private static void CheckParenthesis(string userInput)
     {
         string str="";
-        int prevIndex = 0;
+        string prt = "";
+        char prev;
+        int openPara = 0;
         for(int i=0; i < userInput.Length; i++)
         {
             if (userInput[i] == '(' || userInput[i] == ')')
             {
-                prevIndex = i;
-
+                prt += userInput[i];
             }
             str += userInput[i];
         }
+        Console.WriteLine(prt);
+        Console.WriteLine("Number of Paranthesis => ", str.Count());
+        for(int i=0; i < str.Length; i++)
+        {
+            if (openPara >= 0)
+            {
+                prev = str[i];
+                if (str[i] == '(')
+                {
+                    openPara++;
+                }
+                else
+                {
+                    openPara--;
+                }
+                if (i + 1 < str.Length)
+                {
+                    if (str[i + 1] == ')')
+                    {
+                        openPara--;
+                    }
+                }
+            }
+        }
+        if (openPara == 0)
+        {
+            Console.WriteLine("It's a good formed.");
+        }else
+        {
+            Console.WriteLine("It's not in the good form.");
+        }
+        
+        Console.ReadKey();
     }
 
     private static void ReverseText(string userInput)
